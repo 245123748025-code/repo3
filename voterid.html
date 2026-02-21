@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Voter ID Form</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+}
+
+.form-box, .card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+.form-box {
+    width: 300px;
+}
+
+.form-box h2 {
+    text-align: center;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.card {
+    width: 350px;
+    height: 500px;
+    background: linear-gradient(#ffe3c8, #e4fff5);
+}
+
+.header {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.photo {
+    width: 120px;
+    height: 140px;
+    border: 2px solid #000;
+    margin: auto;
+    text-align: center;
+    line-height: 140px;
+    background: #ccc;
+}
+
+.barcode {
+    text-align: center;
+    font-family: monospace;
+    margin: 10px 0;
+}
+
+.details {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.details div {
+    margin: 6px 0;
+}
+</style>
+
+<script>
+function generateCard() {
+    document.getElementById("cname").innerText =
+        document.getElementById("name").value;
+
+    document.getElementById("cfather").innerText =
+        document.getElementById("father").value;
+
+    document.getElementById("cgender").innerText =
+        document.getElementById("gender").value;
+
+    document.getElementById("cdob").innerText =
+        document.getElementById("dob").value;
+
+    document.getElementById("cid").innerText =
+        document.getElementById("vid").value;
+}
+</script>
+</head>
+
+<body>
+
+<!-- FORM -->
+<div class="form-box">
+    <h2>Voter Registration</h2>
+
+    <input type="text" id="name" placeholder="Voter Name">
+    <input type="text" id="father" placeholder="Father's Name">
+
+    <select id="gender">
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select>
+
+    <input type="date" id="dob">
+    <input type="text" id="vid" placeholder="Voter ID Number">
+
+    <button onclick="generateCard()">Generate Voter ID</button>
+</div>
+
+<!-- CARD -->
+<div class="card">
+    <div class="header">
+        आपका निर्वाचन आयोग<br>
+        ELECTION COMMISSION OF YOURS<br>
+        ELECTOR PHOTO IDENTITY CARD
+    </div>
+
+    <div class="photo">PHOTO</div>
+
+    <div class="barcode">
+        ||| || ||||| |||||
+        <br>
+        <span id="cid">----------</span>
+    </div>
+
+    <div class="details">
+        <div>Elector's Name : <b id="cname">----------</b></div>
+        <div>Father's Name : <b id="cfather">----------</b></div>
+        <div>Gender : <b id="cgender">----------</b></div>
+        <div>Date of Birth : <b id="cdob">----------</b></div>
+    </div>
+</div>
+
+</body>
+</html>
